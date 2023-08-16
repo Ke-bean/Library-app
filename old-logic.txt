@@ -1,0 +1,43 @@
+// Javascript old logic:
+let books = document.querySelector("#book");
+let title = document.querySelector("#title");
+let author = document.querySelector("#author");
+let pages = document.querySelector("#pages");
+let btn = document.querySelector("#btn")
+let library = [];
+
+function Book(title, author, pages, read){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    }
+function addBookToLibrary(){
+    let book = new Book("The magic of thinking big", "kebean", 295, "Not read yet");
+    let book2 = new Book("The magic of thinking big", "elie", 295, "Not read yet");
+    let book3 = new Book("Pursuit of Happiness", "Chris", 100, "read");
+    let book4 = new Book(`${title} ${author} ${pages}`);
+    btn.addEventListener("click", (e) =>{
+        e.preventDefault;
+        library.push(book4)
+    })
+    library.push(book)
+    library.push(book2)
+    library.push(book3)
+}
+
+function displayBooks(arr){
+    for (let i = 0; i < arr.length; i++){
+       const {title, author, pages, read} = arr[i]
+       books.innerHTML += `${i + 1}) ${title}, by ${author}. ${pages} pages.  ${read}. <br> <br>` 
+   }
+}
+
+let theHobbit = new Book("Hobbit", "J.R.R. Tolkien", 295, "not read" );
+
+
+addBookToLibrary(theHobbit);
+displayBooks(library)
+
+//will come back to this project later on;
+
