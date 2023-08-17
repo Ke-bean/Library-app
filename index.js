@@ -37,7 +37,12 @@ function showBook(){
         has
         <p>${book.pages}<p>
         <p>${book.read? "read": "not read yet"}<p>
+        <button onclick="remove(${i})">Delete</button>
         `
         bookLibrary.appendChild(bookElement);
     }
+}
+function remove(i){
+    library.splice(i, 1);
+    showBook();
 }
