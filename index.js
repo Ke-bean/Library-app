@@ -12,6 +12,9 @@ function Book(title, author, pages, read){
     this.pages = pages;
     this.read = read;
 }
+Book.prototype.toggleRead = function(){
+    this.read = !this.read;
+}
 function addBookToLibrary(){
     const title =  document.querySelector("#title").value;
     const author =  document.querySelector("#author").value;
@@ -37,6 +40,7 @@ function showBook(){
         has
         <p>${book.pages}<p>
         <p>${book.read? "read": "not read yet"}<p>
+        <button onclick="toggleRead(${i})">Toggle Read</button>
         <button onclick="remove(${i})">Delete</button>
         `
         bookLibrary.appendChild(bookElement);
@@ -44,5 +48,10 @@ function showBook(){
 }
 function remove(i){
     library.splice(i, 1);
+    showBook();
+}
+
+function toggleRead(i){
+    library[i].toggleRead();
     showBook();
 }
